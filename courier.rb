@@ -33,7 +33,7 @@ post '/' do
     
     redirect "#{@@url}/success.html"
   else
-    redirect "#{@@url}/contact/error.html"
+    redirect "#{@@url}/error.html"
   end
   
 end
