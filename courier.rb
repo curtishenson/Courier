@@ -2,7 +2,7 @@ require 'sinatra'
 require 'pony'
 
 EMAIL_EX = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i
-@url = 'http://localhost:4000/contact'
+@@url = 'http://localhost:4000/contact'
 
 error do
   'Sorry there was an error - ' + env['sinatra.error'].name
@@ -31,9 +31,9 @@ post '/' do
       }
     )
     
-    redirect "#{@url}/success.html"
+    redirect "#{@@url}/success.html"
   else
-    redirect "#{@url}/contact/error.html"
+    redirect "#{@@url}/contact/error.html"
   end
   
 end
