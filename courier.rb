@@ -13,7 +13,7 @@ post '/' do
   name, email, message = params[:name], params[:email], params[:message]
   
   error = true if email[EMAIL_EX].nil? || name.blank? || message.blank?
-  
+  puts "#{name} -- #{email} -- #{message}"
   if error == false
     Pony.mail(
       :to => 'svenhenson@gmail.com', 
