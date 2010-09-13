@@ -31,9 +31,9 @@ post '/' do
       }
     )
     
-    redirect "#{@@url}/success.html"
+    redirect "#{@@url}/success/"
   else
-    redirect "#{@@url}/error.html"
+    redirect "#{@@url}/error/"
   end
   
 end
