@@ -1,0 +1,6 @@
+config:
+	base_url: http://yoururl.com/contact
+	email: email@company.com
+	email_subject: Webform submission
+	success_url: success/
+	error_url:  error/
