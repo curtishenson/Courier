@@ -10,11 +10,7 @@ end
 
 configure do
    config = YAML.load_file("config.yaml")
-   @base_url = config["config"]["base_url"]
-	@email = config["config"]["email"]
-   @email_subject = config["config"]["email_subject"]
-   @success_url = @base_url + "/" + config["config"]["success_url"]
-   @error_url =  @base_url + "/" +config["config"]["error_url"]
+   config["config"].each { |key, value| instance_variable_set("@#{key}", value) }
 end
 
 post '/' do
@@ -40,9 +36,9 @@ post '/' do
       }
     )
     
-    redirect @success_url
+    redirect "#{@base_url}/#{@success_url}"
   else
-    redirect @error_url
+    redirect "#{@base_url}/#{@error_url}"
   end
   
 end
